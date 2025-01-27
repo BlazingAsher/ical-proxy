@@ -1,0 +1,32 @@
+{
+  "example": {
+    "ical_url": "https://example.com/path/to/original.ics",
+      "cache_expiry_hours": 4,
+
+      "time_overrides": [
+        {
+          "regex": "Meeting with Bob",
+          "start_time": "10:00:00",
+          "end_time": "12:00:00",
+          "timezone": "US/Eastern"
+        },
+        {
+          "regex": "Yoga Class",
+          "start_time": "07:30:00",
+          "end_time": "08:30:00",
+          "timezone": "Europe/Berlin"
+        }
+      ],
+
+      "location_overrides": [
+        {
+          "regex": "Meeting with Bob",
+          "location": "Zoom Online Room 123"
+        },
+        {
+          "regex": "Yoga Class",
+          "location": "Main Gym"
+        }
+      ]
+  }
+}
