@@ -1,6 +1,6 @@
 ## ICalendar Proxy
 
-This will transform an ics file (that may contain many events) given some rules.
+This will transform an ics file (that may contain many events) from some URL given some rules and return it.
 
 There are two types of rules: time override and location override. Rules are selected by a regex to match the summary of an event.
 
