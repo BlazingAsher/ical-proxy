@@ -2,11 +2,11 @@
 
 This will transform an ics file (that may contain many events) from some URL given some rules and return it.
 
-There are two types of rules: time override and location override. Rules are selected by a regex to match the summary of an event.
+There are two types of rules: time transformations and location transformations. Rules are selected by a regex to match the summary of an event.
 
-A time override will set a new starting and ending time for the event. The new time is given in HH:MM:SS format along with a timezone.
+A time transformation will set a new starting and ending time for the event. The new time is given in HH:MM:SS format along with a timezone.
 
-A location override will just set the location property to the given value. If a location didn't exist on the original event, it will be added.
+A location transformation will just set the location property to the given value. If a location didn't exist on the original event, it will be added.
 
 ## General Overview
 Calendars are configured by creating a new entry in `config.json` (or whatever path given in the `--config` flag).
@@ -26,3 +26,8 @@ See the `config.json.example` for more details.
    2. Options can be found by running with `-h`: `python3 app.py -h`
 
 **WARNING**: There is no authentication functionality! This service should most likely be behind a reverse proxy that can provide authentication or only host calendars that should be publicly-available.
+
+## Known Limitations
+- Events that have a date transform applied must start and end on the same day (in the event start date's time zone). Otherwise, the end date will be set to the start date.
+  - There isn't a huge reason for this and the change is pretty simple if you require the time of multi-day events to be transformed
+  - This doesn't affect multi-day events that don't match a time transform.
